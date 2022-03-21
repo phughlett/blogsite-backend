@@ -22,7 +22,7 @@ module.exports = {
   getUserInfo: (username) => {
     console.log('getUserInfo called, username: ', username)
 
-    return knex('users').select('first_name', 'last_name', 'username').where({username});
+    return knex('users').select('id','first_name', 'last_name', 'username').where({username});
 
   }
 

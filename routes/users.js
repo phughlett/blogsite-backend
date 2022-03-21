@@ -27,7 +27,7 @@ router.route('/create')
 router.route('/login')
   .post((req, res) => {
 
-    console.log('Post to /users/login, Req.body:', req.body);
+    // console.log('Post to /users/login, Req.body:', req.body);
     let { username, password } = req.body;
 
 
