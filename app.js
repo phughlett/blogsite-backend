@@ -11,7 +11,7 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 app.use(morgan("tiny"))
-app.use("/users", users)
+app.use("/users", users);
 
 
 app.get('/', (req, res) => {
