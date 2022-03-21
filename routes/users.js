@@ -42,16 +42,16 @@ router.route('/login')
                 .catch(err => res.status(501).json(err))
             }
             else
-              res.status(401).json('Incorrect Username or Password provided');
+              res.status(400).json('Incorrect Username or Password provided');
           })
           .catch((err) => {
             console.log('Error calling compare ', err);
-            res.status(502).json('Incorrect Username or Password provided')
+            res.status(400).json('Incorrect Username or Password provided')
           });
       })
       .catch((err) => {
         console.log('Error calling db.getUserHashPass', err)
-        res.status(503).json('Incorrect Username or Password provided')
+        res.status(400).json('Incorrect Username or Password provided')
       })
   });
 
