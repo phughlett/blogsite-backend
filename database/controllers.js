@@ -24,9 +24,42 @@ module.exports = {
 
     return knex('users').select('id','first_name', 'last_name', 'username').where({username});
 
-  }
+  },
 
 //Posts Controller Calls
+
+  getAllPosts: () => {
+
+    return knex('posts').select();
+  },
+
+  getUserPosts: (user_id) => {
+
+    console.log('user_id at controller: ', user_id)
+    return knex('posts').select().where({user_id})
+
+  },
+
+  getPostById: (id) => {
+    return knex('posts').select().where({id})
+  },
+
+  updatePost: (id, update) => {
+    console.log('db.updatePost called, id', id)
+    console.log('db.updatePost called, update', update)
+    let {title, content} = update;
+
+    return knex('posts').update({title, content}).where({id})
+  },
+
+  addPost: ({ user_id, title, content }) => {
+    return knex('posts').insert({user_id, title, content});
+  },
+
+  removePost: (id) => {
+    console.log('remove post id', id)
+    return knex('posts').where({id}).del()
+  }
 
 
 

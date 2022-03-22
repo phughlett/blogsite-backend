@@ -55,6 +55,30 @@ router.route('/login')
       })
   });
 
+  router.route('/:user_id/posts')
+  .get((req,res) => {
+
+    console.log('posts/:userid called, req.params: ', req.params)
+    let {user_id} = req.params
+
+    db.getUserPosts(user_id)
+    .then((response) => res.status(200).json(response))
+    .catch((err) => {
+      console.log(err)
+      res.status(400).json('Something went wrong')
+    })
+  })
+
+  .post((req,res) => {
+    let {user_id} = req.params
+    console.log('req.body', req.body)
+    let{ title, content} = req.body;
+    let insertObj = {user_id, title, content};
+    db.addPost(insertObj)
+    .then(response => res.status(200).json(`Post created`))
+    .catch(err => console.log(`POST request Error at users/:userid/posts `, err))
+  })
+
 
 
 
