@@ -13,7 +13,7 @@ router.route('/')
 router.route('/create')
   .post((req, res) => {
 
-    console.log('Post to /users/create, Req.body:', req.body);
+    // console.log('Post to /users/create, Req.body:', req.body);
     let { first_name, last_name, username, password } = req.body;
 
     hash(password, saltRounds).then((hashedPassword) => {
