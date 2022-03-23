@@ -17,7 +17,7 @@ app.use("/posts", posts);
 
 
 app.get('/', (req, res) => {
-  res.status(200).send('Blogsite')
+  res.status(200).send('Blog Site')
 });
 
 module.exports = app;
